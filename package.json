@@ -1,0 +1,23 @@
+{
+  "name": "copy-file-loader",
+  "version": "0.0.1",
+  "author": {
+    "name": "liuzhenwei"
+  },
+  "description": "copy file loader module for webpack",
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "loader-utils": "~0.2.5",
+    "mime": "1.2.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webpack/file-loader.git"
+  },
+  "homepage": "https://github.com/webpack/file-loader",
+  "main": "index.js",
+  "license": "MIT",
+  "readme": "ERROR: No README data found!"
+}
