@@ -14,10 +14,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/webpack/file-loader.git"
+    "url": "git+https://github.com/liuzhenwei/copy-file-loader.git"
   },
-  "homepage": "https://github.com/webpack/file-loader",
+  "homepage": "https://github.com/liuzhenwei/copy-file-loader",
   "main": "index.js",
   "license": "MIT",
-  "readme": "ERROR: No README data found!"
+  "readme": "copy file loader module for webpack"
 }
