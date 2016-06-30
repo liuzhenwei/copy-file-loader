@@ -28,12 +28,19 @@ module.exports = function(content) {
 
 		query.copyto = query.copyto || "[hash].[ext]";
 		query.name = query.name || query.copyto;
+		query.path = query.path || "";
 
-		var url = loaderUtils.interpolateName(this, query.copyto, {
+		if (query.path.slice(query.path.length - 1) !== '/') {
+			query.path += '/';
+		}
+
+		var copyto = loaderUtils.interpolateName(this, query.copyto, {
 			context: query.context || this.options.context,
 			content: content,
 			regExp: query.regExp
 		});
+
+		var url = query.path + copyto;
 
 		var name = loaderUtils.interpolateName(this, query.name, {
 			context: query.context || this.options.context,
@@ -43,8 +50,8 @@ module.exports = function(content) {
 
 		var rawRequest = this._module.rawRequest;
 
-		if( rawRequest.indexOf(url) > -1 ){
-			name = rawRequest.replace(url, name); 
+		if( rawRequest.indexOf(copyto) > -1 ){
+			name = rawRequest.replace(url, name);
 		}
 
 		this.emitFile(url, content);
