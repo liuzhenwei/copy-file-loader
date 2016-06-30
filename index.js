@@ -30,8 +30,8 @@ module.exports = function(content) {
 		query.name = query.name || query.copyto;
 		query.path = query.path || "";
 
-		if (query.path.slice(query.path.length - 1) !== '/') {
-			query.path += '/';
+		if (query.path != "" && query.path.slice(query.path.length - 1) !== "/") {
+			query.path += "/";
 		}
 
 		var copyto = loaderUtils.interpolateName(this, query.copyto, {
