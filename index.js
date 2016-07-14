@@ -51,7 +51,7 @@ module.exports = function(content) {
 		var rawRequest = this._module.rawRequest;
 
 		if( rawRequest.indexOf(copyto) > -1 ){
-			name = rawRequest.replace(url, name);
+			name = rawRequest.replace(copyto, name);
 		}
 
 		this.emitFile(url, content);
