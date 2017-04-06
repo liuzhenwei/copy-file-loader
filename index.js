@@ -9,12 +9,16 @@ module.exports = function(content) {
 
 	this.cacheable && this.cacheable();
 
-	if(!this.emitFile) throw new Error("emitFile is required from module system");
+	if (!this.emitFile) throw new Error("emitFile is required from module system");
 
-	var query = loaderUtils.parseQuery(this.query);
+	if (Object.prototype.toString.call(loaderUtils.getOptions) === '[object Function]') {
+		var query = loaderUtils.getOptions(this);
+	} else {
+		var query = loaderUtils.parseQuery(this.query);
+	}
 
 	var limit = (this.options && this.options.url && this.options.url.dataUrlLimit) || 1;
-	if(query.limit) {
+	if (query.limit) {
 		limit = parseInt(query.limit, 10);
 	}
 
