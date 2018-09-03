@@ -59,7 +59,12 @@ module.exports = function(content) {
 		}
 
 		this.emitFile(url, content);
-		return "module.exports = __webpack_public_path__ + " + JSON.stringify(name) + ";";
+
+		if (query.usePublic) {
+			return "module.exports = __webpack_public_path__ + " + JSON.stringify(name) + ";";
+		}
+
+		return "module.exports = " + JSON.stringify(name) + ";";
 	}
 };
 module.exports.raw = true;
